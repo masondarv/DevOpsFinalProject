@@ -1,0 +1,25 @@
+version: '3'
+services:
+  server:
+    build: /vagrant/server
+    ports:
+      - "5000:5000"
+    volumes:
+      - /vagrant/server:/code
+    environment:
+      # message to print
+      - HW2MSG=HW2 MSG FROM SERVER
+    stdin_open: true
+    tty: true
+
+  client:
+    build: /vagrant/client
+    ports:
+      - "5001:5001"
+    volumes:
+      - /vagrant/client:/code
+    environment:
+      # interval in milliseconds
+      - HW2INT=2000
+    stdin_open: true
+    tty: true
