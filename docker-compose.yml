@@ -1,7 +1,7 @@
 version: '3'
 services:
   server:
-    build: /vagrant/server
+    build: ./server
     ports:
       - "5000:5000"
     volumes:
@@ -13,7 +13,7 @@ services:
     tty: true
 
   client:
-    build: /vagrant/client
+    build: ./client
     ports:
       - "5001:5001"
     volumes:
