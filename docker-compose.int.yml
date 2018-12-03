@@ -1,6 +1,6 @@
 version: '3'
 services:
-  intTest:
+  integration:
     build: ./IntegrationTest
     volumes:
       - /vagrant/IntegrationTest:/code
