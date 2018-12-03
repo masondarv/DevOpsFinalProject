@@ -4,12 +4,12 @@ node('docker') {
         checkout scm
 
     stage 'Build & UnitTest'
-    set -e
+    sh "set -e"
     sh "docker-compose -f docker-compose.unit1.yml up"
     sh "docker-compose -f docker-compose.unit2.yml up"
 
     stage 'Integration Test'
-    set -e
+    sh "set -e"
     sh "docker-compose -f docker-compose.int.yml up"
 
 }
