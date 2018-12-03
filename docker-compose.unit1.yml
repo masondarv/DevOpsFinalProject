@@ -6,10 +6,3 @@ services:
       - /vagrant/class1:/code
     stdin_open: true
     tty: true
-
-  class2:
-    build: ./class2
-    volumes:
-      - /vagrant/class2:/code
-    stdin_open: true
-    tty: true
