@@ -3,23 +3,15 @@ services:
   server:
     build: ./server
     ports:
-      - "5000:5000"
+      - "8000:8000"
     volumes:
       - /vagrant/server:/code
-    environment:
-      # message to print
-      - HW2MSG=HW2 MSG FROM SERVER
     stdin_open: true
     tty: true
 
   client:
-    build: ./client
-    ports:
-      - "5001:5001"
+    build: ./testclient
     volumes:
-      - /vagrant/client:/code
-    environment:
-      # interval in milliseconds
-      - HW2INT=2000
+      - /vagrant/testclient:/code
     stdin_open: true
     tty: true

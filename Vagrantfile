@@ -71,7 +71,7 @@ end
   #
      # Customize the amount of memory on the VM:
      vb.memory = "1024"
-     vb.name = "docker1"
+     vb.name = "Jenkins_CICD"
   end
   #
   # View the documentation for the provider you are using for more
