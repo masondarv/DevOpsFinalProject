@@ -33,8 +33,7 @@ class server(BaseHTTPRequestHandler):
     print(fields[b'testdata1'][0].decode('utf-8'))
 
     self.wfile.write(message.encode('utf-8'))
-	
-	assert(message == "Valid data received")
+    assert(message == "Valid data received")
 
 	
 
