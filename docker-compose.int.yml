@@ -1,7 +1,7 @@
 version: '3'
 services:
   class1:
-    build: ./integrationTest
+    build: ./IntegrationTest
     volumes:
       - /vagrant/IntegrationTest:/code
     stdin_open: true
