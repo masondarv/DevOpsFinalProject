@@ -3,7 +3,7 @@ from time import sleep
 import http.client
 import urllib.parse
 import urllib.request
-params = urllib.parse.urlencode({'testdata1': 1, 'testdata2': 2, 'testdata3': 0})
+params = urllib.parse.urlencode({'testdata1': 1, 'stopServer': 0 })
 headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
 
 def main():

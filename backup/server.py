@@ -3,6 +3,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs
 
 class server(BaseHTTPRequestHandler):
+
+  stopped = False
+  
   def _set_headers(self):
     self.send_response(200)
     self.send_header('Content-type', 'text/html')
@@ -33,7 +36,9 @@ class server(BaseHTTPRequestHandler):
     print(fields[b'testdata1'][0].decode('utf-8'))
 
     self.wfile.write(message.encode('utf-8'))
-    assert(message == "Valid data received")
+	
+    if int(fields[b'stopServer'][0].decode('utf-8'))
+    stopped = True
 
 	
 
@@ -43,6 +48,11 @@ def main():
 
   print("Starting server")
   httpd.serve_forever()
+  
+  while(1)
+    if http.stopped = True
+    http.server_close()
+	  
 
 if __name__ == "__main__":
   main()

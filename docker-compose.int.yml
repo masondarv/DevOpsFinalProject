@@ -1,0 +1,8 @@
+version: '3'
+services:
+  class1:
+    build: ./integrationTest
+    volumes:
+      - /vagrant/IntegrationTest:/code
+    stdin_open: true
+    tty: true

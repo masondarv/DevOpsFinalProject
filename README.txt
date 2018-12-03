@@ -14,7 +14,7 @@ Steps to Setup and Execute CI/CD pipeline using Docker+Jenkins
 
 6) From the command line, run "cd /vagrant"
 
-7) From the command line, run "docker-compose -f .\docker-compose.ci.yml up" to launch the Jenkins infrastructure
+7) From the command line, run "docker-compose -f docker-compose.ci.yml up" to launch the Jenkins infrastructure
 
 8) Open a web browser and access the Jenkins web UI at  http://192.168.33.10:8080
 
