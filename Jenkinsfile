@@ -16,7 +16,7 @@ node('docker') {
         } else {
         echo "Unit tests passed"
         }
-      }
+    }
 
     stage('Integration Test') {
       sh "docker-compose -f docker-compose.int.yml up"
@@ -28,6 +28,6 @@ node('docker') {
         } else {
         echo "Integration tests passed"
         }
-      }
+    }
 
 }
