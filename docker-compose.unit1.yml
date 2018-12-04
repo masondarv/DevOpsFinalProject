@@ -2,6 +2,7 @@ version: '3'
 services:
   class1:
     build: ./class1
+    container_name: class1
     volumes:
       - /vagrant/class1:/code
     stdin_open: true
