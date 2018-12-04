@@ -2,7 +2,7 @@ version: '3'
 services:
   integration:
     build: ./IntegrationTest
-    container_name: integration
+    container_name: int
     volumes:
       - /vagrant/IntegrationTest:/code
     stdin_open: true
