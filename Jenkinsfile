@@ -12,7 +12,7 @@ node('docker') {
       echo "return value of expense class test is ${rv2}"
       echo rv1
 
-      if (rv1) {
+      if (rv1 != '0') {
         sh "exit 1"
         } else {
         echo "Unit tests passed"
