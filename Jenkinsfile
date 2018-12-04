@@ -11,8 +11,10 @@ node('docker') {
     rv2 = sh (returnStdout: true, script: "docker inspect c2 --format='{{.State.ExitCode}}'")
     echo "return value of expense class test is ==> ${rv2}"
 
-    if (rv1 || rv2 ) {
+    if (rv1 ) {
       sh "exit 1"
+      } else {
+      echo "Unit tests passed"
       }
 
     stage 'Integration Test'
