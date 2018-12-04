@@ -5,15 +5,22 @@ node('docker') {
 
     stage 'Build & UnitTest'
     sh "docker-compose -f docker-compose.unit1.yml up"
-    sh (returnStdout: true, script: "docker inspect c1 --format='{{.State.ExitCode}}'")
+    rv1 = sh (returnStdout: true, script: "docker inspect c1 --format='{{.State.ExitCode}}'")
+    echo "return value of budget class test is ==> ${rv1}"
     sh "docker-compose -f docker-compose.unit2.yml up"
-    sh (returnStdout: true, script: "docker inspect c2 --format='{{.State.ExitCode}}'")
+    rv2 = sh (returnStdout: true, script: "docker inspect c2 --format='{{.State.ExitCode}}'")
+    echo "return value of expense class test is ==> ${rv2}"
+
+    if (rv1 || rv2 ) {
+      exit 1
+      }
 
     stage 'Integration Test'
     sh "docker-compose -f docker-compose.int.yml up"
-    rv1 = sh (returnStdout: true, script: "docker inspect int --format='{{.State.ExitCode}}'").trim()
-    echo "return value is ==> ${rv1}"
-    if (rv1) {
+    rv3 = sh (returnStdout: true, script: "docker inspect int --format='{{.State.ExitCode}}'").trim()
+    echo "return value of integration test is ==> ${rv3}"
+    
+    if (rv3) {
       exit 1
       }
 

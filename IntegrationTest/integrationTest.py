@@ -177,7 +177,7 @@ class integrationTest(unittest.TestCase):
 
     myBudget.modify_category('Food', 200)
 
-    self.assertEqual(myExpenses.meets_total_budget(myBudget), "tTotal budget met" )
+    self.assertEqual(myExpenses.meets_total_budget(myBudget), "Total budget met" )
     print("Total budget met after increasing Food budget.")
     print("\n")
 
