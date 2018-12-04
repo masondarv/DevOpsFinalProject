@@ -12,7 +12,7 @@ node('docker') {
       echo "return value of expense class test is ${rv2}"
       echo rv1
 
-      if (rv1 != '0') {
+      if (rv1 != '0' && rv2 != '0') {
         sh "exit 1"
         } else {
         echo "Unit tests passed"
@@ -24,8 +24,10 @@ node('docker') {
       rv3 = sh (returnStdout: true, script: "docker inspect int --format='{{.State.ExitCode}}'").trim()
       echo "return value of integration test is ==> ${rv3}"
 
-      if (rv3) {
+      if (rv3 != '0') {
         sh "exit 1"
+        } else {
+        echo "Integration tests passed"
         }
       }
 
