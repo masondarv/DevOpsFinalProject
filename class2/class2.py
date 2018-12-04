@@ -64,7 +64,7 @@ class expenseTest(unittest.TestCase):
     expense3 = LineItem("Chipotle 11/12/18", 8.00)
     expense4 = LineItem("bad expense 00/0/00", -453)
 
-    self.assertEqual(myExpenses.add_item(expense1, 'Food'), "Line item Added hj")
+    self.assertEqual(myExpenses.add_item(expense1, 'Food'), "Line item Added")
     print("Added Line item 1 to and created Food category")
     print("Current Expense List")
     print(myExpenses._expense_items)
