@@ -15,9 +15,13 @@ RUN curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-co
 RUN mkdir -p /home/jenkins
 RUN mkdir -p /var/lib/jenkins
 
+#Adds slave script to container
+
 ADD slave.py /var/lib/jenkins/slave.py
 
 WORKDIR /home/jenkins
+
+# sets environment variables to be used by slave script
 
 ENV JENKINS_URL "http://jenkins"
 ENV JENKINS_SLAVE_ADDRESS ""

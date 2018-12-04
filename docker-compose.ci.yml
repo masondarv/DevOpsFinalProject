@@ -12,6 +12,9 @@ services:
         environment:
             - 'JENKINS_URL=http://jenkins:8080'
         image: jenkins-slave
+        #the unix socket the docker daemon listens on by defualt
+        #used to communicate with the docker daemon
+        #allows the slave to act as a build agent
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
         depends_on:
