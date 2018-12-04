@@ -11,6 +11,8 @@ node('docker') {
 
     stage 'Integration Test'
     sh "docker-compose -f docker-compose.int.yml up"
-    sh (returnStdout: true, script: "docker inspect int --format='{{.State.ExitCode}}'")
+    if (sh (returnStdout: true, script: "docker inspect int --format='{{.State.ExitCode}}'")) {
+    sh "exit 1"
+    }
 
 }

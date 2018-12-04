@@ -1,6 +1,6 @@
 version: '3'
 services:
-  class1:
+  class2:
     build: ./class2
     container_name: c2
     volumes:
