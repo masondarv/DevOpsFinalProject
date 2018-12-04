@@ -13,7 +13,7 @@ class Expenses:
 
 	#adds expense item to the list of expenses
   def add_item(self, lineitem: LineItem, category):
-    if lineitem.amount < 0:
+    if lineitem.amount > 0:
       return "Invalid Amount"
     if category not in self._expense_items:
       self._expense_items[category] = dict()
