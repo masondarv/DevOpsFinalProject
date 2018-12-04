@@ -11,8 +11,10 @@ node('docker') {
       rv2 = sh (returnStdout: true, script: "docker inspect c2 --format='{{.State.ExitCode}}'").trim()
       echo "return value of expense class test is ${rv2}"
 
-      if (rv1 != '0' && rv2 != '0') {
+      if (rv1 != '0') {
         sh "exit 1"
+        } else if(rv2 != '0') {
+          sh "exit 1"
         } else {
         echo "Unit tests passed"
         }
