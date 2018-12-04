@@ -6,10 +6,10 @@ node('docker') {
     stage 'Build & UnitTest'
     sh "docker-compose -f docker-compose.unit1.yml up"
     rv1 = sh (returnStdout: true, script: "docker inspect c1 --format='{{.State.ExitCode}}'").trim()
-    echo "return value of budget class test is ==> ${rv1}"
+    echo "return value of budget class test is ${rv1}"
     sh "docker-compose -f docker-compose.unit2.yml up"
     rv2 = sh (returnStdout: true, script: "docker inspect c2 --format='{{.State.ExitCode}}'").trim()
-    echo "return value of expense class test is ==> ${rv2}"
+    echo "return value of expense class test is ${rv2}"
 
     if (rv1 == 0) {
       sh "exit 1"
