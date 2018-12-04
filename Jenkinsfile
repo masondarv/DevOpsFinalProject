@@ -12,16 +12,16 @@ node('docker') {
     echo "return value of expense class test is ==> ${rv2}"
 
     if (rv1 || rv2 ) {
-      exit 1
+      sh "exit 1"
       }
 
     stage 'Integration Test'
     sh "docker-compose -f docker-compose.int.yml up"
     rv3 = sh (returnStdout: true, script: "docker inspect int --format='{{.State.ExitCode}}'").trim()
     echo "return value of integration test is ==> ${rv3}"
-    
+
     if (rv3) {
-      exit 1
+      sh "exit 1"
       }
 
 }
