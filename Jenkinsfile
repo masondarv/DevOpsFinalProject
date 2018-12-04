@@ -5,6 +5,7 @@ node('docker') {
         checkout scm
 
     stage('Build & UnitTest') {
+    
       // build and unit test Budget class
       sh "docker-compose -f docker-compose.unit1.yml up"
       rv1 = sh (returnStdout: true, script: "docker inspect c1 --format='{{.State.ExitCode}}'").trim()
