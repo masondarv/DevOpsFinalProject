@@ -1,3 +1,4 @@
+//selects docker as the build agent
 node('docker') {
 
     stage 'Checkout'
